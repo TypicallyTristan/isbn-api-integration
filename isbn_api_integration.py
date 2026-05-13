@@ -2,9 +2,6 @@
 import logging
 import requests
 
-
-
-
 ## Initialize logging
 logging.basicConfig(
     filename='integration_errors.log',
@@ -13,8 +10,6 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     force=True
 )
-
-
 
 ## Function to get book title from ISBN
 def getIsbnTitle(isbn):
@@ -31,16 +26,15 @@ def getIsbnTitle(isbn):
                 logging.error(f"{searchKey}: Failed to Lookup - Empty Payload Recieved")
                 return
 
-        
             # If data as value access information
             isbn_record = response.json().get(searchKey, {})
             details = isbn_record.get('details', {})
             title = details.get('title', 'Title not found')
             print("Connection: Success")
             print(f"Book Found: {title}")
-
         else:
             print(f"Connection Failed. Status:", response.status_code)
+            
     except requests.exceptions.RequestException as e:
         print(f"Connection Error: {str(e)}")
         logging.error(f"{searchKey}: Connection Error: {str(e)}")
@@ -48,5 +42,5 @@ def getIsbnTitle(isbn):
 def main():
     isbnInput = input("Please enter ISBN: ").strip()
     getIsbnTitle(isbnInput)
-
+    
 main()
