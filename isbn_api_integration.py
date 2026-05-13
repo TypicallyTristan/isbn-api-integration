@@ -7,7 +7,7 @@ import requests
 
 ## Initialize logging
 logging.basicConfig(
-    filename='intergration_errors.log',
+    filename='integration_errors.log',
     level=logging.ERROR,
     filemode='a',
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -22,7 +22,7 @@ def getIsbnTitle(isbn):
     response = requests.get(url)
     searchKey = f"ISBN:{isbn}"
 
-    ## Check if connection was made succesfully
+    ## Check if connection was made successfully
     try:
         if response.status_code == 200:
             # Check if data is empty and log if it is
