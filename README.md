@@ -1,6 +1,5 @@
 # isbn-api-integration
 
-Description
 This Python utility provides a terminal interface for querying book titles from the Open Library API using ISBN identifiers. It is built with a focus on system reliability and diagnostic logging, ensuring that all network issues or data discrepancies are recorded for later review.
 
 Features
